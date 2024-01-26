@@ -39,20 +39,21 @@ dependencies {
 
 processResources {
 	inputs.properties([
-			"version": project.version,
-			"mcversion": project.minecraft_version,
-			"fabricloaderversion": project.loader_version,
-			"fabricapiversion": project.fabric_version,
-			"modmenuversion": project.modmenu_version,
-			"clothconfigversion": project.clothconfig_version
+			"version": mod_version,
+			"mcversion": minecraft_version,
+			"fabricloaderversion": loader_version,
+			"fabricapiversion": fabric_version,
+			"modmenuversion": modmenu_version,
+			"clothconfigversion": clothconfig_version
 	])
+
 	filesMatching("fabric.mod.json") {
-		expand "version": project.version,
-				"mcversion": project.minecraft_version,
-				"fabricloaderversion": project.loader_version,
-				"fabricapiversion": project.fabric_version,
-				"modmenuversion": project.modmenu_version,
-				"clothconfigversion": project.clothconfig_version
+		expand "version": mod_version,
+				"mcversion": minecraft_version,
+				"fabricloaderversion": loader_version,
+				"fabricapiversion": fabric_version,
+				"modmenuversion": modmenu_version,
+				"clothconfigversion": clothconfig_version
 	}
 }
 
@@ -62,6 +63,9 @@ tasks.withType(JavaCompile).configureEach {
 
 java {
 	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {

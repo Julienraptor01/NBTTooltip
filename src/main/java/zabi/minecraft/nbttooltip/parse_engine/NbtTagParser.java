@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface NbtTagParser {
 
-	void parseTagToList(List<Text> list, @Nullable NbtElement tag, boolean splitlines);
-	
+    void parseTagToList(List<Text> list, @Nullable NbtElement tag, boolean splitlines);
+
 }

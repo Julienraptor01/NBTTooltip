@@ -1,26 +1,21 @@
 package zabi.minecraft.nbttooltip.config;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
-
 import zabi.minecraft.nbttooltip.config.ConfigInstance.CopyingEngine;
 import zabi.minecraft.nbttooltip.config.ConfigInstance.TooltipEngine;
+
+import java.io.*;
 
 
 public class ModConfig {
 
     private static final File folder = new File("config");
-    private static File configFile;
     private static final Gson config = new GsonBuilder().setPrettyPrinting().create();
     public static ConfigInstance INSTANCE;
+    private static File configFile;
 
     public static void init() {
         loadDefaults();
@@ -50,7 +45,7 @@ public class ModConfig {
             configFile = new File(folder, "nbttooltip.json");
 
             File legacyConfigFile = new File(folder, "nbttooltip.config");
-            if (legacyConfigFile.exists() && legacyConfigFile.isFile() && ! configFile.exists()) {
+            if (legacyConfigFile.exists() && legacyConfigFile.isFile() && !configFile.exists()) {
                 if (!legacyConfigFile.renameTo(configFile)) {
                     System.err.format("Could not rename legacy config file %s to %s\n", legacyConfigFile.getAbsolutePath(), configFile.getAbsolutePath());
                 } else {
