@@ -9,8 +9,6 @@ import zabi.minecraft.nbttooltip.config.ConfigInstance.CopyingEngine;
 import zabi.minecraft.nbttooltip.config.ConfigInstance.TooltipEngine;
 
 public class ConfigScreenProvider implements ModMenuApi {
-
-
     public static ConfigBuilder builder() {
 
         ConfigBuilder configBuilder = ConfigBuilder.create()

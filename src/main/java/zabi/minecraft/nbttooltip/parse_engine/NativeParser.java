@@ -31,7 +31,7 @@ public class NativeParser implements NbtTagParser {
     }
 
     private String unwrapCompound(NbtCompound tag) {
-        if (tag.getKeys().size() == 0) {
+        if (tag.getKeys().isEmpty()) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
@@ -45,7 +45,7 @@ public class NativeParser implements NbtTagParser {
     }
 
     private String unwrapList(AbstractNbtList<?> tag) {
-        if (tag.size() == 0) {
+        if (tag.isEmpty()) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
